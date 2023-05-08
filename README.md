@@ -1,4 +1,4 @@
-#Cryptoverse
+##Cryptoverse
 
 This is a README file for Cryptoverse a React project. It includes information about the project, how to set it up, and how to use it.
 
