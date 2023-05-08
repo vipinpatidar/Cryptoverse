@@ -8,7 +8,7 @@ This React project is a crypto currency tracker, where you can track any crypto 
 ## Setup
 To set up the project on your local machine, follow these steps:
 
-Clone the repository using git clone.
+Clone the repository using git clone git@github.com:vipinpatidar/Cryptoverse.git.
 Navigate to the project directory using cd [insert project directory].
 Install the necessary dependencies using npm install.
 Run the project locally using npm run dev.
