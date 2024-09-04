@@ -2,6 +2,10 @@
 
 This is a README file for Cryptoverse a React project. It includes information about the project, how to set it up, and how to use it.
 
+## Live At
+
+https://cryptoverse-vipin.netlify.app/
+
 ##Project Description
 This React project is a crypto currency tracker, where you can track any crypto currency current price, News. By clicking on a crypto card you can get whole information about this crypto, like price variations, Market cap, which number this crypto trending. Project was created using Vite React.js it uses Rapid API for fetching data,Ant design tools , React.js Chat library, React router dom, Redux as a state manager and follows best practices for React development.
 
