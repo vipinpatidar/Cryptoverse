@@ -62,14 +62,14 @@ const Homepage = () => {
         </Title>
       </div>
       <Cryptocurrencies simplified />
-      <div className="home-heading-container home-news-heading">
+      {/* <div className="home-heading-container home-news-heading">
         <Title level={2} className="home-title">
           Latest Crypto News
         </Title>
         <Title level={3} className="show-more">
           <Link to="/news">Show More</Link>
         </Title>
-      </div>
+      </div> */}
       <News simplified />
     </>
   );

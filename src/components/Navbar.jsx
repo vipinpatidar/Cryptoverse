@@ -48,11 +48,11 @@ const Navbar = () => {
     //   icon: <MoneyCollectOutlined />,
     //   label: <Link to="/exchanges">Exchanges</Link>,
     // },
-    {
-      key: "News",
-      icon: <BulbOutlined />,
-      label: <Link to="/news">News</Link>,
-    },
+    // {
+    //   key: "News",
+    //   icon: <BulbOutlined />,
+    //   label: <Link to="/news">News</Link>,
+    // },
   ];
 
   return (

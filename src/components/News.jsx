@@ -18,7 +18,11 @@ const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const { data: cryptosList } = useGetCryptosQuery(100);
 
-  const { data: cryptoNews, isFetching } = useGetCryptoNewsQuery({
+  const {
+    data: cryptoNews,
+    isFetching,
+    error,
+  } = useGetCryptoNewsQuery({
     newsCategory,
     count: simplified ? 13 : 22,
   });
@@ -49,7 +53,7 @@ const News = ({ simplified }) => {
           </div>
         </Col>
       )}
-      {cryptoNews.value.map((news, i) => (
+      {cryptoNews?.value?.map((news, i) => (
         <Col xs={24} sm={12} lg={8} key={i}>
           <Card hoverable className="news-card">
             <a href={news.url} target="_blank" rel="noreferrer">
