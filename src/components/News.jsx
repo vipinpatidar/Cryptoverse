@@ -24,8 +24,10 @@ const News = ({ simplified }) => {
     error,
   } = useGetCryptoNewsQuery({
     newsCategory,
-    count: simplified ? 13 : 22,
+    count: simplified ? 12 : 24,
   });
+
+  // console.log("cryptoNews", cryptoNews);
 
   if (isFetching) return <Loader />;
   return (
@@ -53,46 +55,67 @@ const News = ({ simplified }) => {
           </div>
         </Col>
       )}
-      {cryptoNews?.value?.map((news, i) => (
-        <Col xs={24} sm={12} lg={8} key={i}>
-          <Card hoverable className="news-card">
-            <a href={news.url} target="_blank" rel="noreferrer">
-              <div className="news-image-container">
-                <Title className="news-title" level={4}>
-                  {news.name}
-                </Title>
-                <img
-                  style={{ maxWidth: "200px", maxHeight: "100px" }}
-                  src={news?.image?.thumbnail?.contentUrl || demoImage}
-                  alt="crypto image"
-                />
-              </div>
-              <p>
-                {news.description > 100
-                  ? `${news.description.substring(0, 100)}...`
-                  : news.description}
-              </p>
-              <div className="provider-container">
-                <div>
-                  <Avatar
-                    src={
-                      news.provider[0]?.image?.thumbnail?.contentUrl ||
-                      demoImage
-                    }
-                    alt="news provider"
+      {cryptoNews?.data?.map((item, i) => {
+        const news = {
+          name: item.title,
+          description: item.snippet,
+          url: item.link,
+          image: item.photo_url,
+          provider: item.source_name,
+          datePublished: item.published_datetime_utc,
+        };
+
+        return (
+          <Col xs={24} sm={12} lg={8} key={i}>
+            <Card hoverable className="news-card">
+              <a href={news.url} target="_blank" rel="noreferrer">
+                <div className="news-image-container">
+                  <Title
+                    className="news-title"
+                    level={4}
+                    style={{ marginBottom: 0 }}
+                  >
+                    {news.name.slice(0, 50)}...
+                  </Title>
+                  <img
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                    src={news?.image || demoImage}
+                    alt="crypto image"
                   />
-                  <Text className="provider-name">
-                    {news.provider[0]?.name}
+                </div>
+                <p>
+                  {news.description > 100
+                    ? `${news.description.substring(0, 100)}...`
+                    : news.description}
+                </p>
+                <div className="provider-container">
+                  <div>
+                    <Avatar
+                      src={
+                        news.provider[0]?.image?.thumbnail?.contentUrl ||
+                        demoImage
+                      }
+                      alt="news provider"
+                      style={{ width: "50px", height: "50px" }}
+                    />
+                    <Text className="provider-name">
+                      {news.provider[0]?.name}
+                    </Text>
+                  </div>
+                  <Text>
+                    {moment(news.detePublished).startOf("ss").fromNow()}
                   </Text>
                 </div>
-                <Text>
-                  {moment(news.detePublished).startOf("ss").fromNow()}
-                </Text>
-              </div>
-            </a>
-          </Card>
-        </Col>
-      ))}
+              </a>
+            </Card>
+          </Col>
+        );
+      })}
     </Row>
   );
 };

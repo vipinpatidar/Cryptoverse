@@ -325,6 +325,8 @@ a:hover {
 
 .select-news {
   width: 260px;
+  border: 2px solid rgba(0, 0, 255, 0.8) !important;
+  border-radius: 8px;
 }
 .select-news > div > span > input {
   cursor: pointer !important;
@@ -399,7 +401,6 @@ a:hover {
 .search-container {
   margin: 0px 0px 30px;
   width: 100%;
-  background-color: #0071bd;
   padding: 15px;
   display: flex;
   height: 72px;
@@ -414,9 +415,10 @@ a:hover {
 .search_input {
   width: 100%;
   border: none;
-  padding: 12px 10px;
+  padding: 12px 15px;
   border-radius: 8px;
   outline: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 255, 0.5);
 }
 .crypto-card-container {
   margin-top: 3rem;

@@ -1,7 +1,6 @@
-import { useState } from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { Layout, Typography, Space } from "antd";
 import {
   Navbar,
@@ -29,7 +28,7 @@ function App() {
                 element={<Cryptocurrencies />}
               />
               <Route exact path="/crypto/:coinId" element={<CryptoDetails />} />
-              {/* <Route exact path="/news" element={<News />} /> */}
+              <Route exact path="/news" element={<News />} />
             </Routes>
           </div>
         </Layout>
